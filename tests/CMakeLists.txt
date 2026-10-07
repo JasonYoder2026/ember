@@ -8,11 +8,11 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-add_executable(emberTests
+add_executable(EmberTests
     EngineTest.cpp
 )
 
-target_link_libraries(emberTests
+target_link_libraries(EmberTests
     PRIVATE
         Engine
         GTest::gtest_main
@@ -20,4 +20,4 @@ target_link_libraries(emberTests
 
 include(GoogleTest)
 
-gtest_discover_tests(emberTests)
+gtest_discover_tests(EmberTests)

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(ember
+project(Ember
     VERSION 0.1.0
     LANGUAGES CXX
 )
@@ -42,11 +42,11 @@ target_include_directories(Engine
 # Engine application
 # ----------------------------------------
 
-add_executable(ember
+add_executable(Ember
     src/main.cpp
 )
 
-target_link_libraries(ember
+target_link_libraries(Ember
     PRIVATE
         Engine
 )
