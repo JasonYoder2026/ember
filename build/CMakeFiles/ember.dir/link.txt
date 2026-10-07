@@ -1,1 +1,0 @@
-/usr/bin/clang++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/ember.dir/src/main.cpp.o -o /Users/jason/Documents/cpp/ember/bin/ember  lib/libEngine.a
