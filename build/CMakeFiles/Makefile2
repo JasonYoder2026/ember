@@ -63,34 +63,160 @@ CMAKE_BINARY_DIR = /Users/jason/Documents/cpp/ember/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/Engine.dir/all
 all: CMakeFiles/ember.dir/all
+all: tests/all
 .PHONY : all
 
 # The main recursive "codegen" target.
+codegen: CMakeFiles/Engine.dir/codegen
 codegen: CMakeFiles/ember.dir/codegen
+codegen: tests/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: tests/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/Engine.dir/clean
 clean: CMakeFiles/ember.dir/clean
+clean: tests/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory _deps/googletest-build
+
+# Recursive "all" directory target.
+_deps/googletest-build/all: _deps/googletest-build/googlemock/all
+.PHONY : _deps/googletest-build/all
+
+# Recursive "codegen" directory target.
+_deps/googletest-build/codegen: _deps/googletest-build/googlemock/codegen
+.PHONY : _deps/googletest-build/codegen
+
+# Recursive "preinstall" directory target.
+_deps/googletest-build/preinstall: _deps/googletest-build/googlemock/preinstall
+.PHONY : _deps/googletest-build/preinstall
+
+# Recursive "clean" directory target.
+_deps/googletest-build/clean: _deps/googletest-build/googlemock/clean
+.PHONY : _deps/googletest-build/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/googletest-build/googlemock
+
+# Recursive "all" directory target.
+_deps/googletest-build/googlemock/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+_deps/googletest-build/googlemock/all: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+_deps/googletest-build/googlemock/all: _deps/googletest-build/googletest/all
+.PHONY : _deps/googletest-build/googlemock/all
+
+# Recursive "codegen" directory target.
+_deps/googletest-build/googlemock/codegen: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/codegen
+_deps/googletest-build/googlemock/codegen: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/codegen
+_deps/googletest-build/googlemock/codegen: _deps/googletest-build/googletest/codegen
+.PHONY : _deps/googletest-build/googlemock/codegen
+
+# Recursive "preinstall" directory target.
+_deps/googletest-build/googlemock/preinstall: _deps/googletest-build/googletest/preinstall
+.PHONY : _deps/googletest-build/googlemock/preinstall
+
+# Recursive "clean" directory target.
+_deps/googletest-build/googlemock/clean: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
+_deps/googletest-build/googlemock/clean: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
+_deps/googletest-build/googlemock/clean: _deps/googletest-build/googletest/clean
+.PHONY : _deps/googletest-build/googlemock/clean
+
+#=============================================================================
+# Directory level rules for directory _deps/googletest-build/googletest
+
+# Recursive "all" directory target.
+_deps/googletest-build/googletest/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+_deps/googletest-build/googletest/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+.PHONY : _deps/googletest-build/googletest/all
+
+# Recursive "codegen" directory target.
+_deps/googletest-build/googletest/codegen: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/codegen
+_deps/googletest-build/googletest/codegen: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/codegen
+.PHONY : _deps/googletest-build/googletest/codegen
+
+# Recursive "preinstall" directory target.
+_deps/googletest-build/googletest/preinstall:
+.PHONY : _deps/googletest-build/googletest/preinstall
+
+# Recursive "clean" directory target.
+_deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
+_deps/googletest-build/googletest/clean: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
+.PHONY : _deps/googletest-build/googletest/clean
+
+#=============================================================================
+# Directory level rules for directory tests
+
+# Recursive "all" directory target.
+tests/all: tests/CMakeFiles/emberTests.dir/all
+tests/all: _deps/googletest-build/all
+.PHONY : tests/all
+
+# Recursive "codegen" directory target.
+tests/codegen: tests/CMakeFiles/emberTests.dir/codegen
+tests/codegen: _deps/googletest-build/codegen
+.PHONY : tests/codegen
+
+# Recursive "preinstall" directory target.
+tests/preinstall: _deps/googletest-build/preinstall
+.PHONY : tests/preinstall
+
+# Recursive "clean" directory target.
+tests/clean: tests/CMakeFiles/emberTests.dir/clean
+tests/clean: _deps/googletest-build/clean
+.PHONY : tests/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Engine.dir
+
+# All Build rule for target.
+CMakeFiles/Engine.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=1,2 "Built target Engine"
+.PHONY : CMakeFiles/Engine.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Engine.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Engine.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 0
+.PHONY : CMakeFiles/Engine.dir/rule
+
+# Convenience name for target.
+Engine: CMakeFiles/Engine.dir/rule
+.PHONY : Engine
+
+# codegen rule for target.
+CMakeFiles/Engine.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=1,2 "Finished codegen for target Engine"
+.PHONY : CMakeFiles/Engine.dir/codegen
+
+# clean rule for target.
+CMakeFiles/Engine.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Engine.dir/build.make CMakeFiles/Engine.dir/clean
+.PHONY : CMakeFiles/Engine.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ember.dir
 
 # All Build rule for target.
-CMakeFiles/ember.dir/all:
+CMakeFiles/ember.dir/all: CMakeFiles/Engine.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember.dir/build.make CMakeFiles/ember.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember.dir/build.make CMakeFiles/ember.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=1,2 "Built target ember"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=3,4 "Built target ember"
 .PHONY : CMakeFiles/ember.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ember.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ember.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 0
 .PHONY : CMakeFiles/ember.dir/rule
@@ -102,13 +228,176 @@ ember: CMakeFiles/ember.dir/rule
 # codegen rule for target.
 CMakeFiles/ember.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember.dir/build.make CMakeFiles/ember.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=1,2 "Finished codegen for target ember"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=3,4 "Finished codegen for target ember"
 .PHONY : CMakeFiles/ember.dir/codegen
 
 # clean rule for target.
 CMakeFiles/ember.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ember.dir/build.make CMakeFiles/ember.dir/clean
 .PHONY : CMakeFiles/ember.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/emberTests.dir
+
+# All Build rule for target.
+tests/CMakeFiles/emberTests.dir/all: CMakeFiles/Engine.dir/all
+tests/CMakeFiles/emberTests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+tests/CMakeFiles/emberTests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/emberTests.dir/build.make tests/CMakeFiles/emberTests.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/emberTests.dir/build.make tests/CMakeFiles/emberTests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=5,6 "Built target emberTests"
+.PHONY : tests/CMakeFiles/emberTests.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/emberTests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/emberTests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/emberTests.dir/rule
+
+# Convenience name for target.
+emberTests: tests/CMakeFiles/emberTests.dir/rule
+.PHONY : emberTests
+
+# codegen rule for target.
+tests/CMakeFiles/emberTests.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/emberTests.dir/build.make tests/CMakeFiles/emberTests.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=5,6 "Finished codegen for target emberTests"
+.PHONY : tests/CMakeFiles/emberTests.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/emberTests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/emberTests.dir/build.make tests/CMakeFiles/emberTests.dir/clean
+.PHONY : tests/CMakeFiles/emberTests.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock.dir
+
+# All Build rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=7,8 "Built target gmock"
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 0
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
+
+# Convenience name for target.
+gmock: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/rule
+.PHONY : gmock
+
+# codegen rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=7,8 "Finished codegen for target gmock"
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/codegen
+
+# clean rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir
+
+# All Build rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/all
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=9,10 "Built target gmock_main"
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 0
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
+
+# Convenience name for target.
+gmock_main: _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/rule
+.PHONY : gmock_main
+
+# codegen rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=9,10 "Finished codegen for target gmock_main"
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/codegen
+
+# clean rule for target.
+_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
+.PHONY : _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googletest/CMakeFiles/gtest.dir
+
+# All Build rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/all:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=11,12 "Built target gtest"
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 0
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
+
+# Convenience name for target.
+gtest: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/rule
+.PHONY : gtest
+
+# codegen rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=11,12 "Finished codegen for target gtest"
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/codegen
+
+# clean rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest.dir/clean
+
+#=============================================================================
+# Target rules for target _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir
+
+# All Build rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/depend
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=13,14 "Built target gtest_main"
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+
+# Build rule for subdir invocation for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/jason/Documents/cpp/ember/build/CMakeFiles 0
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
+
+# Convenience name for target.
+gtest_main: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/rule
+.PHONY : gtest_main
+
+# codegen rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/jason/Documents/cpp/ember/build/CMakeFiles --progress-num=13,14 "Finished codegen for target gtest_main"
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/codegen
+
+# clean rule for target.
+_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
+.PHONY : _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,7 +1,9 @@
-#include <iostream>
+#include "engine/Engine.hpp"
 
-int main() {
-    std::cout << "Hello, engine!\n";
+int main()
+{
+    Engine engine;
+    engine.run();
 
     return 0;
 }

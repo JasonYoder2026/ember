@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
+  "/Users/jason/Documents/cpp/ember/bin/ember"
+  "/Users/jason/Documents/cpp/ember/bin/ember.pdb"
   "CMakeFiles/ember.dir/src/main.cpp.o"
   "CMakeFiles/ember.dir/src/main.cpp.o.d"
-  "ember"
-  "ember.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
